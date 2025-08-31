@@ -10,6 +10,7 @@
   width: 300px;
   height: 200px;
   padding: 20px;
+  position: relative;
 }
 .card:nth-child(even) {
   background-color: rgb(242, 252, 255);
@@ -35,4 +36,121 @@
   border-radius: 50px;
   padding: 8px 12px;
   margin-top: 20px;
+}
+.delete {
+  display: none;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 13px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 400;
+  transition: all 0.8s ease-in-out;
+}
+.delete img {
+  width: 15px;
+  height: 15px;
+}
+.card:hover .delete {
+  display: block;
+}
+
+.dialogContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+}
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  max-width: 600px;
+  min-width: 0;
+  width: 90%;
+  flex-shrink: 1;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.384);
+  position: relative;
+  background-color: white;
+}
+.dialogYes {
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 13px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: rgba(104, 202, 104, 0.897);
+  font-weight: 400;
+  color: white;
+  width: 70px;
+  transition: all 0.3s ease-in-out;
+}
+.dialogYes:hover {
+  background-color: rgba(19, 148, 77, 0.932);
+}
+.dialogNo {
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 13px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: rgba(235, 97, 55, 0.897);
+  font-weight: 400;
+  color: white;
+  width: 70px;
+  transition: all 0.3s ease-in-out;
+}
+.dialogNo:hover {
+  background-color: rgba(245, 26, 26, 0.781);
+}
+.dialogTitle {
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+.dialogContent {
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  height: 100px;
+}
+.dialogButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  align-self: flex-end;
+  gap: 1px;
+}
+
+.hideDialog {
+  display: none;
 }

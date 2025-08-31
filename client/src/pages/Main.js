@@ -6,13 +6,12 @@ import URL from "../enum/enum.js";
 import Card from "../component/Card.js";
 export default function Main() {
   const [notes, setNotes] = useState([]);
+  async function fetchNotes() {
+    const respose = await fetch(`${URL.BASE_URL}/notes`);
+    const data = await respose.json();
+    setNotes(data);
+  }
   useEffect(() => {
-    const fetchNotes = async () => {
-      const respose = await fetch(`${URL.BASE_URL}/notes`);
-      const data = await respose.json();
-      setNotes(data);
-      console.log(data);
-    };
     fetchNotes();
   }, []);
   return (
@@ -21,7 +20,7 @@ export default function Main() {
       <Note />
       <div className={MainCss.card}>
         {notes.map((note) => {
-          return <Card key={note._id} note={note} />;
+          return <Card key={note._id} note={note} callBack={fetchNotes} />;
         })}
       </div>
     </div>
