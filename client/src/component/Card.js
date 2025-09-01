@@ -41,11 +41,17 @@ export default function Card({ note, callBack }) {
       <p className={CardCss.title}>{title}</p>
       <p className={CardCss.content}>{content}</p>
       <p className={CardCss.creationDate}>{creationDate}</p>
-      <button className={CardCss.delete} onClick={() => setShow(true)}>
+      <button
+        className={CardCss.delete}
+        onClick={(e) => {
+          e.stopPropagation();
+          setShow(true);
+        }}
+      >
         <img src={deleteIcon} alt="delete" />
       </button>
       <div className={show ? CardCss.dialogContainer : CardCss.hideDialog}>
-        <div className={CardCss.dialog}>
+        <div className={CardCss.dialog} onClick={(e) => e.stopPropagation()}>
           <p className={CardCss.dialogTitle}>Delete Note</p>
           <p className={CardCss.dialogContent}>
             Are you sure you want to delete this note?
