@@ -17,7 +17,7 @@ export default function Main() {
   return (
     <div className={MainCss.main}>
       <Header />
-      <Note />
+      <Note callBack={fetchNotes} />
       <div className={MainCss.card}>
         {notes.map((note) => {
           return <Card key={note._id} note={note} callBack={fetchNotes} />;

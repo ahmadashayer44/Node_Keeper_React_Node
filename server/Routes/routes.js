@@ -17,6 +17,7 @@ router.get("/notes", async function getNotes(req, res) {
 router.post("/notes", async function postNote(req, res) {
   {
     const { title, content } = req.body;
+
     let creationDate = new Date();
 
     try {
