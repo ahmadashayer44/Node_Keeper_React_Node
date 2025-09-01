@@ -28,7 +28,8 @@
   margin-top: 20px;
   font-size: 15px;
 }
-.creationDate {
+.creationDate,
+.creationDateDialog {
   margin: 0;
   padding: 0;
   margin-right: 20px;
@@ -153,4 +154,46 @@
 
 .hideDialog {
   display: none;
+}
+
+.dialogContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100vh;
+  z-index: 9000;
+}
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  max-width: 600px;
+  min-width: 0;
+  width: 90%;
+  flex-shrink: 1;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.384);
+  position: relative;
+  background-color: white;
+}
+
+.input {
+  width: 90%;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 14px;
+  margin: 10px;
+}
+
+.creationDateDialog {
+  margin: 10px;
+  font-size: 14px;
 }
