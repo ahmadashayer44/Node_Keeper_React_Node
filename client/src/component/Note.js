@@ -1,11 +1,26 @@
 import NoteCss from "./Note.module.css";
 import { useState } from "react";
-export default function Note() {
+import URL from "../enum/enum.js";
+export default function Note({ callBack }) {
   const [show, setShow] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  async function addNote() {
+    const response = await fetch(`${URL.BASE_URL}/notes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, content }),
+    });
+    const data = await response.json();
+    console.log(data);
+    setShow(false);
+    setShowDialog(false);
+    callBack();
+  }
   return (
     <>
       {!show && (
@@ -61,7 +76,9 @@ export default function Note() {
             Are you sure you want to add this note?
           </p>
           <div className={NoteCss.dialogButtons}>
-            <button className={NoteCss.dialogYes}>Yes</button>
+            <button className={NoteCss.dialogYes} onClick={() => addNote()}>
+              Yes
+            </button>
             <button
               className={NoteCss.dialogNo}
               onClick={() => setShowDialog(false)}
